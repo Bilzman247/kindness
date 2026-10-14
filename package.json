@@ -1,0 +1,42 @@
+{
+  "name": "derivgo-auto-bot",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "next dev -p 3000 -H 0.0.0.0",
+    "build": "NODE_ENV=production next build && npm run build:server",
+    "build:server": "esbuild server.ts --bundle --platform=node --format=esm --packages=external --outfile=server.js",
+    "preview": "next start --port 3000 --hostname 0.0.0.0",
+    "clean": "rm -rf .next dist server.js",
+    "lint": "tsc --noEmit",
+    "start": "node server.js",
+    "start:standalone": "next start --port 3000 --hostname 0.0.0.0"
+  },
+  "dependencies": {
+    "@google/genai": "^2.4.0",
+    "@tailwindcss/postcss": "^4.3.3",
+    "dotenv": "^17.2.3",
+    "express": "^4.21.2",
+    "lucide-react": "^0.546.0",
+    "motion": "^12.23.24",
+    "next": "^15.2.0",
+    "react": "^19.3.0",
+    "react-dom": "^19.3.0",
+    "tsx": "^4.21.0"
+  },
+  "devDependencies": {
+    "@types/express": "^4.17.21",
+    "@types/node": "^22.14.0",
+    "@types/react": "^19.3.0",
+    "@types/react-dom": "^19.3.0",
+    "autoprefixer": "^10.4.21",
+    "esbuild": "^0.25.0",
+    "tailwindcss": "^4.3.3",
+    "typescript": "^5.7.3"
+  },
+  "optionalDependencies": {
+    "@next/swc-linux-x64-gnu": "15.2.0",
+    "@next/swc-linux-x64-musl": "15.2.0"
+  }
+}
